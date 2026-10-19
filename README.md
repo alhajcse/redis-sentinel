@@ -170,8 +170,12 @@ sudo ufw status
 If active, open required ports:
 
 ```bash
+
+sudo ufw allow 22/tcp
 sudo ufw allow 6379:6381/tcp
 sudo ufw allow 26379:26381/tcp
+sudo ufw enable
+sudo ufw status verbose
 sudo ufw reload
 sudo ufw status numbered
 ```
