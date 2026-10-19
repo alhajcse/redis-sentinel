@@ -18,7 +18,9 @@ services:
         exec redis-server \
           --requirepass "$$REDIS_PASSWORD" \
           --masterauth "$$REDIS_PASSWORD" \
-          --appendonly yes
+          --appendonly yes \
+          --replica-announce-ip 10.70.16.236 \
+          --replica-announce-port 6379
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -48,7 +50,9 @@ services:
           --requirepass "$$REDIS_PASSWORD" \
           --masterauth "$$REDIS_PASSWORD" \
           --replicaof redis-master 6379 \
-          --appendonly yes
+          --appendonly yes \
+          --replica-announce-ip 10.70.16.236 \
+          --replica-announce-port 6380
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -78,7 +82,9 @@ services:
           --requirepass "$$REDIS_PASSWORD" \
           --masterauth "$$REDIS_PASSWORD" \
           --replicaof redis-master 6379 \
-          --appendonly yes
+          --appendonly yes \
+          --replica-announce-ip 10.70.16.236 \
+          --replica-announce-port 6381
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
