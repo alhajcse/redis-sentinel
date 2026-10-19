@@ -1,0 +1,26 @@
+# Environment secrets
+.env
+.env.local
+
+# Runtime data
+data/
+*.rdb
+*.aof
+appendonlydir/
+
+# Sentinel runtime state
+sentinel.conf.runtime
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
