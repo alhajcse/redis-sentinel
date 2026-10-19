@@ -19,10 +19,35 @@ If not installed:
 
 ```bash
 sudo apt update
-sudo apt install -y docker.io docker-compose-v2
-sudo systemctl enable --now docker
+sudo apt install -y make
+make --version
+
+
+sudo apt install -y docker.io make
+sudo groupadd --force docker
 sudo usermod -aG docker $USER
 newgrp docker
+docker compose version
+
+
+If not 
+# check architect
+ARCH=$(uname -m)
+echo "Arch: $ARCH"
+x86_64 হলে:
+bash
+sudo curl -SL "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64" \
+  -o /usr/libexec/docker/cli-plugins/docker-compose
+
+
+sudo chmod +x /usr/libexec/docker/cli-plugins/docker-compose
+docker compose version
+
+
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker --no-pager
+
 ```
 
 ### Ports
